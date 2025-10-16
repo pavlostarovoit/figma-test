@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-fullscreen">
+  <meta name="apple-mobile-web-app-title" content="Thrust Monitor">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Thrust Monitor">
+  
+  <!-- Description & SEO -->
+  <meta name="description" content="Monitor and control rocket engine thrust measurement stand">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <title>Rocket Engine Thrust Monitor</title>
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Icons (inline SVG data URLs - no external files needed) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMwMDAwMDAiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNTYsIDI1NikiPjxwYXRoIGQ9Ik0wLC0xNTQgTDUxLC03NyBMNDcsLTI2IEw1MSwtMTMgTDI2LC02IEwxMCwtMjEgTDEwLC0zMSBMMCwtMjEgTC0xMCwtMzEgTC0xMCwtMjEgTC0yNiwtNiBMLTUxLC0xMyBMLTQ3LC0yNiBMLTUxLC03NyBaIiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iNCIvPjxwYXRoIGQ9Ik0tMzEsMCBMMCw5MCBMMzEsMCBMMjYsMTUgTDAsNDEgTC0yNiwxNSBaIiBmaWxsPSIjZmY2YjAwIi8+PHBhdGggZD0iTS0xNSwwIEwwLDQxIEwxNSwwIFoiIGZpbGw9IiNmZmQ3MDAiLz48Y2lyY2xlIGN4PSIwIiBjeT0iLTc3IiByPSIzMSIgZmlsbD0iIzBhNjRlYiIvPjxjaXJjbGUgY3g9Ii04IiBjeT0iLTgyIiByPSIxMyIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjUpIi8+PGNpcmNsZSBjeD0iLTE4MCIgY3k9Ii0xMjgiIHI9IjUiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC42KSIvPjxjaXJjbGUgY3g9IjE4MCIgY3k9Ii0xMDMiIHI9IjYiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC42KSIvPjxjaXJjbGUgY3g9Ii0xNTQiIGN5PSI3NyIgcj0iNCIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjYpIi8+PGNpcmNsZSBjeD0iMTU0IiBjeT0iNTEiIHI9IjUiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC42KSIvPjx0ZXh0IHg9IjAiIHk9IjE5MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VEhSVVNUPC90ZXh0PjwvZz48L3N2Zz4=">
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMwMDAwMDAiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNTYsIDI1NikiPjxwYXRoIGQ9Ik0wLC0xNTQgTDUxLC03NyBMNDcsLTI2IEw1MSwtMTMgTDI2LC02IEwxMCwtMjEgTDEwLC0zMSBMMCwtMjEgTC0xMCwtMzEgTC0xMCwtMjEgTC0yNiwtNiBMLTUxLC0xMyBMLTQ3LC0yNiBMLTUxLC03NyBaIiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iNCIvPjxwYXRoIGQ9Ik0tMzEsMCBMMCw5MCBMMzEsMCBMMjYsMTUgTDAsNDEgTC0yNiwxNSBaIiBmaWxsPSIjZmY2YjAwIi8+PHBhdGggZD0iTS0xNSwwIEwwLDQxIEwxNSwwIFoiIGZpbGw9IiNmZmQ3MDAiLz48Y2lyY2xlIGN4PSIwIiBjeT0iLTc3IiByPSIzMSIgZmlsbD0iIzBhNjRlYiIvPjxjaXJjbGUgY3g9Ii04IiBjeT0iLTgyIiByPSIxMyIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjUpIi8+PGNpcmNsZSBjeD0iLTE4MCIgY3k9Ii0xMjgiIHI9IjUiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC42KSIvPjxjaXJjbGUgY3g9IjE4MCIgY3k9Ii0xMDMiIHI9IjYiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC42KSIvPjxjaXJjbGUgY3g9Ii0xNTQiIGN5PSI3NyIgcj0iNCIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjYpIi8+PGNpcmNsZSBjeD0iMTU0IiBjeT0iNTEiIHI9IjUiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC42KSIvPjx0ZXh0IHg9IjAiIHk9IjE5MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VEhSVVNUPC90ZXh0PjwvZz48L3N2Zz4=">
+  
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: fixed;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    
+    #root {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+
+    /* Prevent pull-to-refresh on mobile */
+    body {
+      overscroll-behavior-y: contain;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/main.tsx"></script>
+</body>
+</html>

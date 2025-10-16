@@ -1,0 +1,27 @@
+{
+  "name": "Rocket Engine Thrust Monitor",
+  "short_name": "Thrust Monitor",
+  "description": "Monitor and control rocket engine thrust measurement stand",
+  "start_url": "./",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMwMDAwMDAiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNTYsIDI1NikiPjxwYXRoIGQ9Ik0wLC0xNTQgTDUxLC03NyBMNDcsLTI2IEw1MSwtMTMgTDI2LC02IEwxMCwtMjEgTDEwLC0zMSBMMCwtMjEgTC0xMCwtMzEgTC0xMCwtMjEgTC0yNiwtNiBMLTUxLC0xMyBMLTQ3LC0yNiBMLTUxLC03NyBaIiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iNCIvPjxwYXRoIGQ9Ik0tMzEsMCBMMCw5MCBMMzEsMCBMMjYsMTUgTDAsNDEgTC0yNiwxNSBaIiBmaWxsPSIjZmY2YjAwIi8+PHBhdGggZD0iTS0xNSwwIEwwLDQxIEwxNSwwIFoiIGZpbGw9IiNmZmQ3MDAiLz48Y2lyY2xlIGN4PSIwIiBjeT0iLTc3IiByPSIzMSIgZmlsbD0iIzBhNjRlYiIvPjxjaXJjbGUgY3g9Ii04IiBjeT0iLTgyIiByPSIxMyIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjUpIi8+PGNpcmNsZSBjeD0iLTE4MCIgY3k9Ii0xMjgiIHI9IjUiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC42KSIvPjxjaXJjbGUgY3g9IjE4MCIgY3k9Ii0xMDMiIHI9IjYiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC42KSIvPjxjaXJjbGUgY3g9Ii0xNTQiIGN5PSI3NyIgcj0iNCIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjYpIi8+PGNpcmNsZSBjeD0iMTU0IiBjeT0iNTEiIHI9IjUiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC42KSIvPjx0ZXh0IHg9IjAiIHk9IjE5MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VEhSVVNUPC90ZXh0PjwvZz48L3N2Zz4=",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMwMDAwMDAiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNTYsIDI1NikiPjxwYXRoIGQ9Ik0wLC0xNTQgTDUxLC03NyBMNDcsLTI2IEw1MSwtMTMgTDI2LC02IEwxMCwtMjEgTDEwLC0zMSBMMCwtMjEgTC0xMCwtMzEgTC0xMCwtMjEgTC0yNiwtNiBMLTUxLC0xMyBMLTQ3LC0yNiBMLTUxLC03NyBaIiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iNCIvPjxwYXRoIGQ9Ik0tMzEsMCBMMCw5MCBMMzEsMCBMMjYsMTUgTDAsNDEgTC0yNiwxNSBaIiBmaWxsPSIjZmY2YjAwIi8+PHBhdGggZD0iTS0xNSwwIEwwLDQxIEwxNSwwIFoiIGZpbGw9IiNmZmQ3MDAiLz48Y2lyY2xlIGN4PSIwIiBjeT0iLTc3IiByPSIzMSIgZmlsbD0iIzBhNjRlYiIvPjxjaXJjbGUgY3g9Ii04IiBjeT0iLTgyIiByPSIxMyIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjUpIi8+PGNpcmNsZSBjeD0iLTE4MCIgY3k9Ii0xMjgiIHI9IjUiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC42KSIvPjxjaXJjbGUgY3g9IjE4MCIgY3k9Ii0xMDMiIHI9IjYiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC42KSIvPjxjaXJjbGUgY3g9Ii0xNTQiIGN5PSI3NyIgcj0iNCIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjYpIi8+PGNpcmNsZSBjeD0iMTU0IiBjeT0iNTEiIHI9IjUiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC42KSIvPjx0ZXh0IHg9IjAiIHk9IjE5MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VEhSVVNUPC90ZXh0PjwvZz48L3N2Zz4=",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["utilities", "productivity"],
+  "scope": "./",
+  "prefer_related_applications": false
+}

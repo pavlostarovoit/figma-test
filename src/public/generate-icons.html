@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate PWA Icons</title>
+  <style>
+    body {
+      font-family: 'Noto Sans', Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f7f7f7;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #000;
+      margin-top: 0;
+    }
+    .preview {
+      display: flex;
+      gap: 30px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .icon-preview {
+      text-align: center;
+    }
+    .icon-preview h3 {
+      margin-bottom: 10px;
+      color: #545454;
+    }
+    canvas {
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 30px 0;
+    }
+    button {
+      background: #0a64eb;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Noto Sans', Arial, sans-serif;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #0850c4;
+    }
+    button:active {
+      transform: translateY(1px);
+    }
+    .instructions {
+      background: #fffbea;
+      border-left: 4px solid #ffd700;
+      padding: 20px;
+      border-radius: 4px;
+      margin-top: 30px;
+    }
+    .instructions h3 {
+      margin-top: 0;
+      color: #000;
+    }
+    .instructions ol {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    .instructions li {
+      margin: 8px 0;
+      line-height: 1.6;
+    }
+    code {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+      color: #c13211;
+    }
+    .success {
+      background: #e8f5e9;
+      border-left: 4px solid #4caf50;
+      padding: 20px;
+      border-radius: 4px;
+      margin-top: 20px;
+      display: none;
+    }
+    .success.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 PWA Icon Generator</h1>
+    <p style="color: #545454; font-size: 16px; line-height: 1.6;">
+      <strong>Note:</strong> Your PWA already uses inline SVG icons and works perfectly!<br>
+      This tool is <strong>optional</strong> - use it only if you want to export PNG versions of the icon for other purposes.
+    </p>
+    
+    <div class="preview">
+      <div class="icon-preview">
+        <h3>192 × 192</h3>
+        <canvas id="canvas192" width="192" height="192"></canvas>
+      </div>
+      <div class="icon-preview">
+        <h3>512 × 512</h3>
+        <canvas id="canvas512" width="512" height="512"></canvas>
+      </div>
+    </div>
+    
+    <div class="buttons">
+      <button onclick="generateIcons()">🎨 Regenerate Icons</button>
+      <button onclick="downloadBoth()">⬇️ Download Both</button>
+      <button onclick="downloadIcon(192)">⬇️ Download 192×192</button>
+      <button onclick="downloadIcon(512)">⬇️ Download 512×512</button>
+    </div>
+    
+    <div class="instructions">
+      <h3>📋 Installation Instructions:</h3>
+      <ol>
+        <li>Click <strong>"Download Both"</strong> to download both icon sizes</li>
+        <li>Save the downloaded files:
+          <ul>
+            <li><code>icon-192.png</code> → Save to <code>/public/</code> folder</li>
+            <li><code>icon-512.png</code> → Save to <code>/public/</code> folder</li>
+          </ul>
+        </li>
+        <li>Reload your app</li>
+        <li>The app is now installable! Look for the "Install" button in your browser</li>
+      </ol>
+    </div>
+    
+    <div class="success" id="successMessage">
+      <strong>✅ Success!</strong> Icons downloaded successfully. Now save them to the <code>/public</code> folder.
+    </div>
+  </div>
+
+  <script>
+    function drawIcon(canvas) {
+      const ctx = canvas.getContext('2d');
+      const size = canvas.width;
+      
+      // Black background
+      ctx.fillStyle = '#000000';
+      ctx.fillRect(0, 0, size, size);
+      
+      // Draw rocket body
+      ctx.fillStyle = '#ffffff';
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = size * 0.008;
+      
+      // Main rocket shape
+      ctx.beginPath();
+      ctx.moveTo(size * 0.5, size * 0.2);   // Top point
+      ctx.lineTo(size * 0.6, size * 0.35);  // Right shoulder
+      ctx.lineTo(size * 0.58, size * 0.55); // Right body
+      ctx.lineTo(size * 0.6, size * 0.65);  // Right fin top
+      ctx.lineTo(size * 0.52, size * 0.72); // Right fin bottom
+      ctx.lineTo(size * 0.48, size * 0.72); // Left fin bottom
+      ctx.lineTo(size * 0.4, size * 0.65);  // Left fin top
+      ctx.lineTo(size * 0.42, size * 0.55); // Left body
+      ctx.lineTo(size * 0.4, size * 0.35);  // Left shoulder
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      
+      // Draw flame (orange)
+      ctx.fillStyle = '#ff6b00';
+      ctx.beginPath();
+      ctx.moveTo(size * 0.42, size * 0.72);
+      ctx.lineTo(size * 0.5, size * 0.88);
+      ctx.lineTo(size * 0.58, size * 0.72);
+      ctx.quadraticCurveTo(size * 0.52, size * 0.78, size * 0.5, size * 0.82);
+      ctx.quadraticCurveTo(size * 0.48, size * 0.78, size * 0.42, size * 0.72);
+      ctx.fill();
+      
+      // Draw inner flame (yellow/gold)
+      ctx.fillStyle = '#ffd700';
+      ctx.beginPath();
+      ctx.moveTo(size * 0.45, size * 0.72);
+      ctx.lineTo(size * 0.5, size * 0.82);
+      ctx.lineTo(size * 0.55, size * 0.72);
+      ctx.closePath();
+      ctx.fill();
+      
+      // Draw window (blue circle)
+      ctx.fillStyle = '#0a64eb';
+      ctx.beginPath();
+      ctx.arc(size * 0.5, size * 0.35, size * 0.06, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Draw window reflection
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+      ctx.beginPath();
+      ctx.arc(size * 0.485, size * 0.34, size * 0.025, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Add "THRUST" text
+      ctx.fillStyle = '#ffffff';
+      ctx.font = `bold ${size * 0.09}px Arial, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('THRUST', size * 0.5, size * 0.94);
+      
+      // Add decorative stars
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+      const stars = [
+        {x: 0.15, y: 0.25, r: 0.01},
+        {x: 0.85, y: 0.3, r: 0.012},
+        {x: 0.2, y: 0.65, r: 0.008},
+        {x: 0.8, y: 0.6, r: 0.01},
+      ];
+      
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(size * star.x, size * star.y, size * star.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    function generateIcons() {
+      console.log('Generating icons...');
+      const canvas192 = document.getElementById('canvas192');
+      const canvas512 = document.getElementById('canvas512');
+      
+      drawIcon(canvas192);
+      drawIcon(canvas512);
+    }
+
+    function downloadIcon(size) {
+      const canvas = document.getElementById(`canvas${size}`);
+      canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `icon-${size}.png`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        showSuccess();
+      }, 'image/png');
+    }
+
+    function downloadBoth() {
+      downloadIcon(192);
+      setTimeout(() => downloadIcon(512), 500);
+    }
+
+    function showSuccess() {
+      const successEl = document.getElementById('successMessage');
+      successEl.classList.add('show');
+      setTimeout(() => {
+        successEl.classList.remove('show');
+      }, 4000);
+    }
+
+    // Generate icons on page load
+    window.addEventListener('load', generateIcons);
+  </script>
+</body>
+</html>
